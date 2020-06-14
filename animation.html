@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      svg {
+  border: 3px solid #eee;
+  display: block;
+  margin: 1em auto;
+}
+    </style>
   </head>
   <body>
     <svg width="500" height="100">
@@ -116,6 +123,143 @@
         </circle>
         <text x="50" y="500">discrete</text>
       </g>
+    </svg>
+    <svg width="500" height="350">
+      <circle id="orange-circle-bouncing" r="30" cx="50" cy="50" fill="orange" />
+      <animate 
+           xlink:href="#orange-circle-bouncing"
+           attributeName="cy"
+           from="50"
+           to="250" 
+           dur="3s"
+           begin="click"
+           calcMode="spline"
+           values="50; 250; 120; 250; 170; 250; 210; 250"
+           keyTimes="0; 0.15; 0.3; 0.45; 0.6; 0.75; 0.9; 1"
+           keySplines="0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1"
+           fill="freeze"  
+           id="circ-anim"/>
+    </svg>
+    <svg width="500" height="350">
+      <circle id="orange-circle-additive" r="30" cx="50" cy="50" fill="orange" />
+      <animate 
+      xlink:href="#orange-circle-additive"
+      attributeName="cx"
+      from="0"
+      to="100" 
+      additive="replace"
+      repeatCount="3"
+      calcMode="spline"
+      keyTimes="0;1"
+      keySplines=".42 0 1 1"
+      dur="1s"
+      begin="click"
+      fill="freeze" />
+    </svg>
+    <svg width="500" height="350">
+      <circle id="orange-circle-accumulate" r="30" cx="50" cy="50" fill="orange" />
+      <animate 
+           xlink:href="#orange-circle-accumulate"
+           attributeName="cx"
+           from="0"
+           to="100" 
+           additive="sum"
+           accumulate="sum"
+           repeatCount="3"
+           calcMode="spline"
+           keyTimes="0;1"
+           keySplines=".42 0 1 1"
+           dur="1s"
+           begin="click"
+           fill="freeze" />
+    </svg>
+    <svg width="500" height="350">
+      <circle id="orange-circle-aniEnd" r="30" cx="50" cy="50" fill="orange" />
+      <circle id="green-circle-aniEnd" r="30" cx="50" cy="150" fill="#009966" />
+      
+      <animate 
+               xlink:href="#orange-circle-aniEnd"
+               attributeName="cx"
+               from="50"
+               to="450" 
+               dur="30s"
+               begin="0s"
+               end="gCircAnim.begin"
+               fill="freeze" 
+               id="oCircAnim"/>
+      <animate 
+               xlink:href="#green-circle-aniEnd"
+               attributeName="cx"
+               from="50"
+               to="450" 
+               dur="1s"
+               begin="click"
+               fill="freeze"
+               id="gCircAnim"/>
+    </svg>
+    <svg width="500" height="350">
+      <circle id="orange-circle-aniEnd2" r="30" cx="50" cy="50" fill="#0099CC" />
+      
+      <animate 
+               xlink:href="#orange-circle-aniEnd2"
+               attributeName="cx"
+               from="50"
+               to="450" 
+               dur="1s"
+               begin="click"
+               fill="freeze" 
+               id="move"/>
+      <animate 
+               xlink:href="#orange-circle-aniEnd2"
+               attributeName="fill"
+               from="#0099CC"
+               to="deepPink" 
+               dur="5s"
+               begin="0s"
+               fill="freeze"
+               id="changeColor"/>
+    </svg>
+    <svg width="500" height="150">
+      <style>
+        rect {
+          -moz-transform-origin: 75px 75px;
+          transform-origin: 50% 50%;
+        }
+      </style>
+      <rect id="deepPink-rectangle" width="50" height="50" x="50" y="50" fill="deepPink" />
+      
+      <animateTransform 
+               xlink:href="#deepPink-rectangle"
+               attributeName="transform" 
+               attributeType="XML"
+               type="rotate"
+               from="0 75 75"
+               to="360 75 75" 
+               dur="2s"
+               begin="0s; 5s; 9s; 17s;"
+               end="2s; 8s; 15s; 25s;"
+               fill="freeze" 
+               restart="whenNotActive"
+               />
+      
+    </svg>
+    <svg width="500" height="350" viewBox="0 0 500 350">
+      <circle id="circle-path" r="20" cx="100" cy="100" fill="tomato" />
+      <animateMotion
+        xlink:href="#circle-path"
+        dur="1s"
+        begin="click"
+        fill="freeze"
+        path="M0,0c3.2-3.4,18.4-0.6,23.4-0.6c5.7,0.1,10.8,0.9,16.3,2.3
+	c13.5,3.5,26.1,9.6,38.5,16.2c12.3,6.5,21.3,16.8,31.9,25.4c10.8,8.7,21,18.3,31.7,26.9c9.3,7.4,20.9,11.5,31.4,16.7
+	c13.7,6.8,26.8,9.7,41.8,9c21.4-1,40.8-3.7,61.3-10.4c10.9-3.5,18.9-11.3,28.5-17.8c5.4-3.7,10.4-6.7,14.8-11.5
+	c1.9-2.1,3.7-5.5,6.5-6.5" />
     </svg>
   </body>
 </html>
