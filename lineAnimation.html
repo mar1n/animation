@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line Animation</title>
+    <style>
+      .star {
+        fill: none;
+        stroke: #000000;
+        stroke-width: 4;
+        stroke-dasharray: 150px;
+        stroke-dashoffset: 150px;
+        animation: dash 5s linear forwards;
+      }
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -150;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="500" height="530" viewBox="0 0 500 350">
+      <path
+        class="star"
+        d="m 34.773809,72.104164 85.422621,0.755955 29.10416,27.592261"
+      />
+    </svg>
+  </body>
+</html>
