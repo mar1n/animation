@@ -5,15 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Line Animation</title>
     <style>
-      .star {
+      body {
+        background-color: chartreuse;
+      }
+      .circle {
+        opacity: 1;
+        fill: #000000;
+        fill-opacity: 0.5;
+        fill-rule: evenodd;
+        stroke: #000000;
+        stroke-width: 1;
+        stroke-linejoin: miter;
+        stroke-miterlimit: 4;
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        stroke-opacity: 0.5;
+        animation: opacityUp 2s linear infinite;
+      }
+      @keyframes opacityUp {
+        50% {
+          stroke-width: 3;
+          fill-opacity: 1;
+          stroke-opacity: 1;
+        }
+        100% {
+          stroke-width: 1;
+          fill-opacity: 0.5;
+          stroke-opacity: 0.5;
+        }
+      }
+      .lineTwo {
         fill: none;
         stroke: #000000;
-        stroke-width: 4;
+        stroke-width: 2;
+        stroke-dasharray: 100px;
+        stroke-dashoffset: 100px;
+        animation: move2 2s linear infinite;
+      }
+      @keyframes move2 {
+        to {
+          stroke-dashoffset: -100;
+        }
+      }
+      .lineOne {
+        fill: none;
+        stroke: #000000;
+        stroke-width: 2;
         stroke-dasharray: 150px;
         stroke-dashoffset: 150px;
-        animation: dash 5s linear forwards;
+        animation: move 2s linear infinite;
       }
-      @keyframes dash {
+      @keyframes move {
         to {
           stroke-dashoffset: -150;
         }
@@ -23,9 +65,17 @@
   <body>
     <svg width="500" height="530" viewBox="0 0 500 350">
       <path
-        class="star"
-        d="m 34.773809,72.104164 85.422621,0.755955 29.10416,27.592261"
+        class="lineOne"
+        d="m 16.252976,74.749998 h 71.815475 l 19.654759,12.095239 h 28.34822"
       />
+      <ellipse
+        ry="5.403"
+        rx="5.4"
+        cy="87.034225"
+        cx="135.31548"
+        class="circle"
+      />
+      <path class="lineTwo" d="M 22.985179,85.037178 H 71.360963" />
     </svg>
   </body>
 </html>
