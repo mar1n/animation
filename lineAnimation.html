@@ -23,7 +23,7 @@
         animation: opacityUp 2s linear infinite;
       }
       @keyframes opacityUp {
-        50% {
+        80% {
           stroke-width: 3;
           fill-opacity: 1;
           stroke-opacity: 1;
@@ -47,7 +47,28 @@
           stroke-dashoffset: -100;
         }
       }
+      .lineThird {
+        fill: none;
+        stroke: #000000;
+        stroke-width: 2;
+        stroke-dasharray: 100px;
+        stroke-dashoffset: 100px;
+        animation: move3 2s linear infinite;
+      }
+      @keyframes move3 {
+        to {
+          stroke-dashoffset: 300px;
+        }
+      }
       .lineOne {
+        fill: none;
+        stroke: #000000;
+        stroke-width: 2;
+        stroke-dasharray: 150px;
+        stroke-dashoffset: 150px;
+        animation: move 2s linear infinite;
+      }
+      .xxx {
         fill: none;
         stroke: #000000;
         stroke-width: 2;
@@ -76,6 +97,42 @@
         class="circle"
       />
       <path class="lineTwo" d="M 22.985179,85.037178 H 71.360963" />
+
+      <defs id="defs2" />
+      <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+        <text
+          xml:space="preserve"
+          style="
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30.08054733px;
+            line-height: 1.25;
+            font-family: sans-serif;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            fill: #999999;
+            fill-opacity: 1;
+            stroke: #1a1a1a;
+            stroke-width: 0.75201362;
+          "
+          x="0.284309"
+          y="100.400383"
+          id="text817"
+          transform="matrix(0.70530343,0,-0.50494559,1.4178295,0,0)"
+        >
+          <tspan
+            sodipodi:role="line"
+            id="tspan815"
+            x="0.284309"
+            y="100.400383"
+            style="fill: #999999; stroke: #1a1a1a; stroke-width: 0.75201362;"
+          >
+            Weather App
+          </tspan>
+        </text>
+      </g>
+      <path class="lineThird" d="M 32.985179,160.037178 H 100.360963" />
+      <path class="lineThird" d="M 22.985179,170.037178 H 90.360963" />
     </svg>
   </body>
 </html>
