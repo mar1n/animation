@@ -15,6 +15,7 @@
         border: 12px solid gold;
         margin: 0 auto;
         font-size: 0;
+        background: linear-gradient(to bottom, #cc0000 0%, #990000 100%);
       }
       .gradient {
         width: 100%;
@@ -52,6 +53,11 @@
           background-position: 100% 0%;
         }
       }
+      .txt {
+        width: 30px;
+        height: 30px;
+        background-color: chartreuse;
+      }
       /* @keyframes gradient {
         0% {
           background-position: 0%;
@@ -64,7 +70,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="gradient"></div>
+      <div class="gradient"><p class="txt">Test</p></div>
     </div>
   </body>
 </html>
